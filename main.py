@@ -135,7 +135,7 @@ if __name__ == "__main__":
         logging.basicConfig(level=logging.INFO)
 
     if args.cert_file:
-        ssl_context = ssl.SSLContext()
+        ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
         ssl_context.load_cert_chain(args.cert_file, args.key_file)
     else:
         ssl_context = None
